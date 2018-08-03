@@ -1,0 +1,73 @@
+<div class="template-box" [ngStyle]="{width:templateBox.width+'px' ,'z-index': templateBox.zIndex, height:templateBox.height+'px' , top:templateBox.position_y+'px' , left:templateBox.position_x+'px', 'background-color' : getColor() }" >
+  <p class="txt-desc" >{{templateBox.boxNumber + "." + templateBox.label}}</p>
+  <p class="txt-order" >Order : {{templateBox.zIndex}}</p>
+  <button class="btn btn-xs btn-primary edit-button-position " (click)="open(content)">Edit</button>
+</div>  
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{templateBox.boxNumber + "." + templateBox.label}} </h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+   
+      <div class="form-group">
+        <div  class="row" >
+          <div class="col-3 text-right " >
+              <label for="width">Width</label>
+          </div>
+          <div class="col-3" >
+              <div class="input-group">
+                  <input id="width" class="form-control" type="text" type="number" [(ngModel)]="templateBox.width" >
+               </div>
+          </div>
+          <div class="col-3 text-right " >
+              <label for="height">Height</label>
+          </div>
+          <div class="col-3" >
+              <div class="input-group">
+                  <input id="height" class="form-control" type="number" [(ngModel)]="templateBox.height">
+              </div>
+          </div>
+        </div>
+        <div  class="row" >
+          <div class="col-3 text-right " >
+              <label for="pos-x">Position X</label>
+          </div>
+          <div class="col-3" >
+              <div class="input-group">
+                  <input id="pos-x" class="form-control" type="text" type="number" [(ngModel)]="templateBox.position_x" >
+                </div>
+          </div>
+          <div class="col-3 text-right " >
+              <label for="pos-y">Position Y</label>
+          </div>
+          <div class="col-3" >
+              <div class="input-group">
+                  <input id="pos-y" class="form-control" type="number" [(ngModel)]="templateBox.position_y">
+              </div>
+          </div>
+         <!-- <div>X : {{(templateBox.position_x/25)-3}}-- y : {{templateBox.position_y/25}} </div>
+          <div>width : {{(templateBox.width/25)-3}}-- height : {{templateBox.height/25}} </div>-->
+        </div>
+        <div  class="row" >
+            <div class="col-4" >
+                <button class="btn btn-xs btn-primary col-12 " (click)="changeLevel(1)">Bring Front</button>
+            </div>
+            <div class="col-2" >
+                Order : {{templateBox.zIndex}}
+            </div>
+            <div class="col-4" >
+                <button class="btn btn-xs btn-primary col-12 " (click)="changeLevel(-1)">Send Back</button>
+            </div>
+          </div>
+      </div>
+    
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="d('SAVE')">Save</button>
+    <button type="button" class="btn btn-danger" (click)="d('CANCEL')">Cancel</button>
+  </div>
+</ng-template>
