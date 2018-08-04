@@ -11,8 +11,8 @@ export class MainLayoutManagerComponent implements OnInit {
   templateBoxList:any=[]
 
   constructor(private templateConfig:TemplateConfigService) { 
-    this.templateConfig.getConfig().subscribe((response)=>{
-      this.templateBoxList=response[0].templateBoxDto.map((templateBox)=>{
+    this.templateConfig.getConfig().subscribe((response:any)=>{
+      this.templateBoxList=response.templateBoxes.map((templateBox)=>{
         templateBox.zIndex=templateBox.boxNumber;
         return templateBox;
       });

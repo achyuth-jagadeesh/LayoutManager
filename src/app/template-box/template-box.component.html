@@ -1,7 +1,6 @@
-<div class="template-box" [ngStyle]="{width:templateBox.width+'px' ,'z-index': templateBox.zIndex, height:templateBox.height+'px' , top:templateBox.position_y+'px' , left:templateBox.position_x+'px', 'background-color' : getColor() }" >
+<div class="template-box" [ngStyle]="{width:templateBox.canvasAreaDimensions.width+'px' ,'z-index': templateBox.zIndex, height:templateBox.canvasAreaDimensions.height+'px' , top:templateBox.canvasPosition.y+'px' , left:templateBox.canvasPosition.x+'px', 'background-color' : getColor() }" >
   <p class="txt-desc" >{{templateBox.boxNumber + "." + templateBox.label}}</p>
   <p class="txt-order" >Order : {{templateBox.zIndex}}</p>
-  <button class="btn btn-xs btn-primary edit-button-position " (click)="open(content)">Edit</button>
 </div>  
 
 <ng-template #content let-c="close" let-d="dismiss">
@@ -20,7 +19,7 @@
           </div>
           <div class="col-3" >
               <div class="input-group">
-                  <input id="width" class="form-control" type="text" type="number" [(ngModel)]="templateBox.width" >
+                  <input id="width" class="form-control" type="text" type="number" [(ngModel)]="templateBox.canvasAreaDimensions.width" >
                </div>
           </div>
           <div class="col-3 text-right " >
@@ -28,7 +27,7 @@
           </div>
           <div class="col-3" >
               <div class="input-group">
-                  <input id="height" class="form-control" type="number" [(ngModel)]="templateBox.height">
+                  <input id="height" class="form-control" type="number" [(ngModel)]="templateBox.canvasAreaDimensions.height">
               </div>
           </div>
         </div>
@@ -38,7 +37,7 @@
           </div>
           <div class="col-3" >
               <div class="input-group">
-                  <input id="pos-x" class="form-control" type="text" type="number" [(ngModel)]="templateBox.position_x" >
+                  <input id="pos-x" class="form-control" type="text" type="number" [(ngModel)]="templateBox.canvasPosition.x" >
                 </div>
           </div>
           <div class="col-3 text-right " >
@@ -46,11 +45,11 @@
           </div>
           <div class="col-3" >
               <div class="input-group">
-                  <input id="pos-y" class="form-control" type="number" [(ngModel)]="templateBox.position_y">
+                  <input id="pos-y" class="form-control" type="number" [(ngModel)]="templateBox.canvasPosition.y">
               </div>
           </div>
          <!-- <div>X : {{(templateBox.position_x/25)-3}}-- y : {{templateBox.position_y/25}} </div>
-          <div>width : {{(templateBox.width/25)-3}}-- height : {{templateBox.height/25}} </div>-->
+          <div>width : {{(templateBox.canvasAreaDimensions.width/25)-3}}-- height : {{templateBox.canvasAreaDimensions.height/25}} </div>-->
         </div>
         <div  class="row" >
             <div class="col-4" >
