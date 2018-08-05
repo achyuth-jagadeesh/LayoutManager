@@ -1,6 +1,6 @@
-<div class="template-box" [ngStyle]="{width:templateBox.canvasAreaDimensions.width+'px' ,'z-index': templateBox.zIndex, height:templateBox.canvasAreaDimensions.height+'px' , top:templateBox.canvasPosition.y+'px' , left:templateBox.canvasPosition.x+'px', 'background-color' : getColor() }" >
+<div class="template-box"  [ngStyle]="{width:templateBox.canvasAreaDimensions.width+'px' ,'z-index': templateBox.zIndex, height:templateBox.canvasAreaDimensions.height+'px' , top:templateBox.canvasPosition.y+'px' , left:templateBox.canvasPosition.x+'px', 'background-color' : getColor() }" >
   <p class="txt-desc" >{{templateBox.boxNumber + "." + templateBox.label}}</p>
-  <p class="txt-order" >Order : {{templateBox.zIndex}}</p>
+  <!--p class="txt-order" >Order : {{templateBox.zIndex}}</p-->
 </div>  
 
 <ng-template #content let-c="close" let-d="dismiss">

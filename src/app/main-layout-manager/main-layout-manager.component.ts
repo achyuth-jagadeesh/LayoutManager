@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { TemplateConfigService } from "../template-config.service";
+import { Component, OnInit, Input } from '@angular/core';
+import { TemplateConfigService  } from "../template-config.service";
 
 @Component({
   selector: 'app-main-layout-manager',
@@ -9,9 +9,13 @@ import { TemplateConfigService } from "../template-config.service";
 export class MainLayoutManagerComponent implements OnInit {
 
   templateBoxList:any=[]
+  templateObj:any;
 
-  constructor(private templateConfig:TemplateConfigService) { 
-    this.templateConfig.getConfig().subscribe((response:any)=>{
+
+  constructor(private templateConfig:TemplateConfigService) {}
+
+  getTemplateList(){
+    this.templateConfig.getConfig(this.templateObj.id).subscribe((response:any)=>{
       this.templateBoxList=response.templateBoxes.map((templateBox)=>{
         templateBox.zIndex=templateBox.boxNumber;
         return templateBox;
@@ -22,5 +26,12 @@ export class MainLayoutManagerComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  @Input()
+  set template(template: any) {
+    this.templateObj = template;
+    this.getTemplateList();
+  }
+
 
 }

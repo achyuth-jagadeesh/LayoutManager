@@ -1,1 +1,6 @@
-<app-template-box *ngFor="let templeteBox of templateBoxList"  [templete]="templeteBox" ></app-template-box>
+<div class="container "  >
+    <div class="main-template-layout" [ngStyle]="{width:templateObj.roomType.canvasAreaDimensions.width +'px' , height:templateObj.roomType.canvasAreaDimensions.height+'px' }" >
+            <app-template-box *ngFor="let templeteBox of templateBoxList"   [templete]="templeteBox" ></app-template-box>
+    </div>
+   
+</div>

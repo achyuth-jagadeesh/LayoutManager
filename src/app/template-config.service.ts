@@ -8,8 +8,12 @@ export class TemplateConfigService {
 
   constructor(private http:HttpClient) { }
 
-  getConfig() {
-    return this.http.get<Config>("api/data.json");
+  getConfig(id:number) {
+    return this.http.get<Config>(`/template/${id}`);
+  }
+  
+  getTemplates() {
+    return this.http.get<Config>("/template");
   }
 }
 

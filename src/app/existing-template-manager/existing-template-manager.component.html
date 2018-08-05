@@ -1,0 +1,9 @@
+<div class="main"  >
+  <ngb-tabset>
+      <ngb-tab  *ngFor="let template of templatesList" title="{{template.roomType.name}}"  >
+        <ng-template ngbTabContent >
+            <app-main-layout-manager [template]="template" ></app-main-layout-manager>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+</div>

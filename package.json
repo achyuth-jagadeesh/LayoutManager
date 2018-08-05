@@ -47,5 +47,5 @@
     "tslint": "~5.9.1",
     "typescript": "~2.7.2"
   },
-  "proxy":"http://localhost:9000"
+  "proxy":"http://localhost:8080"
 }

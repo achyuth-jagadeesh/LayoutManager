@@ -46,10 +46,11 @@ export class TemplateBoxComponent implements OnInit {
   }
 
   calculatePixelss(){
-    this.templateBox.canvasAreaDimensions.height=this.templateBox.canvasAreaDimensions.height*20;
-    this.templateBox.canvasAreaDimensions.width=(this.templateBox.canvasAreaDimensions.width+3)*20;
-    this.templateBox.canvasPosition.x=this.templateBox.canvasPosition.x*20;
-    this.templateBox.canvasPosition.y=this.templateBox.canvasPosition.y*20;
+    let zoomLevel = 5;
+    this.templateBox.canvasAreaDimensions.height=this.templateBox.canvasAreaDimensions.height*zoomLevel;
+    this.templateBox.canvasAreaDimensions.width=(this.templateBox.canvasAreaDimensions.width)*zoomLevel;
+    this.templateBox.canvasPosition.x=this.templateBox.canvasPosition.x*zoomLevel;
+    this.templateBox.canvasPosition.y=this.templateBox.canvasPosition.y*zoomLevel;
   }
 
 
